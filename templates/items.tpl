@@ -12,9 +12,8 @@
             <p class="card-text">{$i->description}</p>
             <p class="card-text">{$i->price}</p>
             <div class="d-grid gap-2">
-              <!--
               <a href="item/{$i->id}" class="btn btn-primary">Show item</a>
-              
+              <!--
               {if !$logged}
                 <a href="#" class="btn btn-primary">Add to cart</a>
               {else}

@@ -22,6 +22,9 @@
         case 'items':
             $itemController->index();
             break;
+        case 'item':
+            $itemController->show($params[1]);
+            break;
         default:  //Caso default de la pagina
           echo('500 internal server error'); 
           break;
