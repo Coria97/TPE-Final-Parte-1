@@ -40,6 +40,12 @@
         case 'items_x_categories':
             $categoryController->showItems($params[1]);
             break;
+        case 'create_category':
+            $categoryController->create();
+            break;
+        case 'delete_category':
+            $categoryController->delete($params[1]);
+            break;
         default:  //Caso default de la pagina
           echo('500 internal server error'); 
           break;

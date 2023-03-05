@@ -22,5 +22,10 @@
       $this->smarty->assign('items', $items);
       $this->smarty->display('./templates/items.tpl'); 
     }
+
+    public function default_view()
+    {
+      header("Location: " . BASE_URL. "categories");
+    }
   }
 ?>

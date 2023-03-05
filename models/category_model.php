@@ -22,5 +22,11 @@
       $query->execute([$id]);
       return $query->fetchAll(PDO::FETCH_OBJ);
     }
+
+    public function delete($id)
+    {
+      $query = $this->db->prepare("DELETE FROM Category WHERE id = ?");
+      $query->execute([$id]);
+    }
   }
 ?>

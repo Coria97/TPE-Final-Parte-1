@@ -3,18 +3,20 @@
   require_once './models/category_model.php';
   require_once './models/item_model.php';
   require_once './views/item_view.php';
-
+  require_once './helpers/controller_helper.php';
   class ItemController 
   {
     private $itemView;
     private $itemModel;
     private $categoryModel;
+    private $controllerHelper;
 
     public function __construct()
     {
       $this->itemModel = new ItemModel();
       $this->itemView = new ItemView();
       $this->categoryModel = new CategoryModel();
+      $this->controllerHelper = new ControllerHelper();
     }
 
     public function index()
@@ -32,7 +34,8 @@
 
     public function create()
     {
-      $this->itemModel->create($_POST);
+      if ($this->controllerHelper->validateParams($_POST))
+        $this->itemModel->create($_POST);
       $this->itemView->default_view();
     }
 
