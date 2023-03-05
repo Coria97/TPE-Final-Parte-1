@@ -1,5 +1,6 @@
 <?php
     include_once './controllers/item_controller.php';
+    include_once './controllers/category_controller.php';
 
     //Definicion de la constante que tiene la URL BASE
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -14,11 +15,10 @@
     $params = explode('/', $action);
 
     $itemController = new ItemController();
+    $categoryController = new CategoryController();
 
     // determina que camino seguir según la acción
     switch ($params[0]) {
-        case 'home':
-          break;
         case 'items':
             $itemController->index();
             break;
@@ -33,6 +33,9 @@
             break;
         case 'put_item':
             $itemController->put($params[1]);
+            break;
+        case 'categories':
+            $categoryController->index();
             break;
         default:  //Caso default de la pagina
           echo('500 internal server error'); 
