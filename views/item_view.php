@@ -21,6 +21,7 @@
       $this->smarty->assign('item', $item);
       $this->smarty->display('./templates/item.tpl');
     }
+    
     public function default_view()
     {
       header("Location: " . BASE_URL. "items");

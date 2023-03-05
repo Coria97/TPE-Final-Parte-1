@@ -41,6 +41,12 @@
       $this->itemModel->delete($id);
       $this->itemView->default_view();
     }
+
+    public function put($id)
+    {
+      $item = $this->itemModel->put($id,$_POST);
+      $this->itemView->show($item[0]);
+    }
   }
 
 ?>
