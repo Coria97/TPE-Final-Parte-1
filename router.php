@@ -37,6 +37,9 @@
         case 'categories':
             $categoryController->index();
             break;
+        case 'items_x_categories':
+            $categoryController->showItems($params[1]);
+            break;
         default:  //Caso default de la pagina
           echo('500 internal server error'); 
           break;

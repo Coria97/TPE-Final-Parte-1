@@ -11,7 +11,7 @@
             <h6 class="card-subtitle mb-2 text-muted">{$c->description}</h6>
             <div class="d-grid gap-2">
               <a href="items_x_categories/{$c->id}" class="btn btn-primary">Show items</a>
-              <a href="delete_category/{$c->id}" class="btn btn-primary">Delete item</a>
+              <a href="delete_category/{$c->id}" class="btn btn-primary">Delete category</a>
               <form method="POST" action="put_category/{$c->id}">
                 <div class="d-grid gap-2">
                   <input class="form-control" type="text" id="name" name="name" placeholder="name">
@@ -34,7 +34,7 @@
               <div class="d-grid gap-2">
                 <input class="form-control" type="text" id="name" name="name" placeholder="name">
                 <input class="form-control" type="text" id="description" name="description" placeholder="description">
-                <button type="submit" class="btn btn-primary">Add item</button>
+                <button type="submit" class="btn btn-primary">Add category</button>
               </div>
             </form>
           </div>
