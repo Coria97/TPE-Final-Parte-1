@@ -13,7 +13,6 @@
             <p class="card-text">{$i->price}</p>
             <div class="d-grid gap-2">
               <a href="item/{$i->id}" class="btn btn-primary">Show item</a>
-              <a href="delete_item/{$i->id}" class="btn btn-primary">Delete item</a>
               <form method="POST" action="put_item/{$i->id}">
                 <div class="d-grid gap-2">
                   <input class="form-control" type="text" id="name" name="name" placeholder="name">
@@ -27,7 +26,7 @@
                   <button type="submit" class="btn btn-primary">Update item</button>
                 </div>
               </form>
-              <a href="delete_item" class="btn btn-primary">Delete item</a>
+              <a href="delete_item/{$i->id}" class="btn btn-primary">Delete item</a>
             </div>
           </div>
         </div> 
