@@ -1,12 +1,15 @@
 <?php
 
+  require_once './helpers/model_helper.php';
   class ItemModel
   { 
     private $db;
+    private $modelHelper;
 
     public function __construct()
     {
       $this->db = new PDO('mysql:host=localhost;port=3307;'.'dbname=db_ecommerce;charset=utf8','root','');
+      $this->modelHelper = new ModelHelper();
     }
     
     public function index()
@@ -36,20 +39,8 @@
 
     public function put($id, $params)
     {
-      $this->db->exec($this->buildQuery($id, $params));
+      $this->db->exec($this->modelHelper->buildQuery($id, 'Item', $params));
       return $this->show($id);
-    }
-
-    private function buildQuery($id, $params)
-    {
-      $query = "UPDATE Item SET ";
-      $columns_to_update = array();
-      foreach (array_keys($params) as $key) 
-        if (!empty($params[$key])) 
-          $columns_to_update[] = $key . "='" . $params[$key] . "'";
-      $query .= implode(',', $columns_to_update);
-      $query .= " WHERE id='".$id."'";
-      return $query;
     }
   }
 ?>

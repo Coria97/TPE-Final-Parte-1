@@ -15,7 +15,7 @@
                 <div class="d-grid gap-2">
                   <input class="form-control" type="text" id="name" name="name" placeholder="name">
                   <input class="form-control" type="text" id="description" name="description" placeholder="description">
-                  <button type="submit" class="btn btn-primary">Update item</button>
+                  <button type="submit" class="btn btn-primary">Update category</button>
                 </div>
               </form>
               <a href="delete_category/{$c->id}" class="btn btn-primary">Delete category</a>

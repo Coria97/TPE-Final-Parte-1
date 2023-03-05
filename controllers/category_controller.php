@@ -40,5 +40,11 @@
         $this->categoryModel->create($_POST);
       $this->categoryView->default_view();
     }
+
+    public function put($id)
+    {
+      $this->categoryModel->put($id,$_POST);
+      $this->categoryView->default_view();
+    }
   }
 ?>
