@@ -25,5 +25,11 @@
       $items = $this->categoryModel->showItems($id);
       $this->categoryView->showItems($items, $categories);
     }
+
+    public function delete($id)
+    {
+      $this->categoryModel->delete($id);
+      $this->categoryView->default_view();
+    }
   }
 ?>
