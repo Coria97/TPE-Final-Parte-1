@@ -16,8 +16,14 @@
 
     public function index()
     { 
-      $items = $this->itemModel->indexModel();
-      $this->itemView->indexView($items); 
+      $items = $this->itemModel->index();
+      $this->itemView->index($items); 
+    }
+
+    public function show($id)
+    {
+      $item = $this->itemModel->show($id);
+      $this->itemView->show($item[0]);
     }
   }
 
