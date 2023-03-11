@@ -28,5 +28,11 @@
       $query = $this->db->prepare("DELETE FROM Category WHERE id = ?");
       $query->execute([$id]);
     }
+
+    public function create($params)
+    {
+      $query = $this->db->prepare("INSERT INTO Category (name, description) VALUES (?,?)");
+      $query->execute([$params['name'],$params['description']]);
+    }
   }
 ?>
