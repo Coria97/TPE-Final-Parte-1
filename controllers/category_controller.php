@@ -1,4 +1,4 @@
-<?php
+<?php 
   require_once './models/category_model.php';
   require_once './views/category_view.php';
 
@@ -17,6 +17,13 @@
     {
       $categories = $this->categoryModel->index();
       $this->categoryView->index($categories);
+    }
+
+    public function showItems($id)
+    {
+      $categories = $this->categoryModel->index();
+      $items = $this->categoryModel->showItems($id);
+      $this->categoryView->showItems($items, $categories);
     }
   }
 ?>
