@@ -48,26 +48,29 @@
             <p class="card-text">{$i->price}</p>
             <div class="d-grid gap-2">
               <a href="item/{$i->id}" class="btn btn-primary">Show item</a>
-              <form method="POST" action="put_item/{$i->id}">
-                <div class="d-grid gap-2">
-                  <input class="form-control" type="text" id="name" name="name" placeholder="name">
-                  <input class="form-control" type="text" id="description" name="description" placeholder="description">
-                  <input class="form-control" type="text" id="price" name="price" placeholder="price">
-                  <select class="form-control" id="fk_id_category" name="fk_id_category">
-                    {foreach from=$categories item=$c}
-                      <option value= "{$c->id}">{$c->name}</option>
-                    {/foreach}
-                  </select>
-                  <button type="submit" class="btn btn-primary">Update item</button>
-                </div>
-              </form>
-              <a href="delete_item/{$i->id}" class="btn btn-primary">Delete item</a>
+              {if $logged}
+                <form method="POST" action="put_item/{$i->id}">
+                  <div class="d-grid gap-2">
+                    <input class="form-control" type="text" id="name" name="name" placeholder="name">
+                    <input class="form-control" type="text" id="description" name="description" placeholder="description">
+                    <input class="form-control" type="text" id="price" name="price" placeholder="price">
+                    <select class="form-control" id="fk_id_category" name="fk_id_category">
+                      {foreach from=$categories item=$c}
+                        <option value= "{$c->id}">{$c->name}</option>
+                      {/foreach}
+                    </select>
+                    <button type="submit" class="btn btn-primary">Update item</button>
+                  </div>
+                </form>
+                <a href="delete_item/{$i->id}" class="btn btn-primary">Delete item</a>
+              {/if}
             </div>
           </div>
         </div> 
       </div>
     </div>  
   {/foreach}
+  {if $logged}
     <div class="container my-3">
       <div class="card text-center" style="width: 18rem;">
         <div class="col-auto">
@@ -89,6 +92,7 @@
         </div>
       </div>
     </div>
+  {/if}
 </div>
 
 {include 'footer.tpl'}

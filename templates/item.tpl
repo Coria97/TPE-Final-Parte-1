@@ -12,22 +12,22 @@
                     <p class="card-text">{$item["price"]}</p>
                     <div class="d-grid gap-2">
                         <a href="items" class="btn btn-primary">Volver</a>
-                        <!--
-                        {if !$logged}
-                            <a href="#" class="btn btn-primary">Añadir al carrito</a>
-                        {else}
-                            <form method="POST" action="producto/{$item["id"]}/editar">
+                        {if $logged}
+                            <form method="POST" action="put_item/{$item["id"]}">
                                 <div class="d-grid gap-2">
-                                    <input class="form-control" type="text" id="nombre" name="nombre" placeholder="nombre">
-                                    <input class="form-control" type="text" id="tipo" name="tipo" placeholder="tipo">
-                                    <input class="form-control" type="text" id="precio" name="precio" placeholder="precio">
-                                    <input class="form-control" type="text" id="foto" name="foto" placeholder="foto">
-                                    <button type="submit" class="btn btn-primary">Editar</button>
+                                    <input class="form-control" type="text" id="name" name="name" placeholder="name">
+                                    <input class="form-control" type="text" id="description" name="description" placeholder="description">
+                                    <input class="form-control" type="text" id="price" name="price" placeholder="price">
+                                    <select class="form-control" id="fk_id_category" name="fk_id_category">
+                                        {foreach from=$categories item=$c}
+                                            <option value= "{$c->id}">{$c->name}</option>
+                                        {/foreach}
+                                    </select>                                    
+                                     <button type="submit" class="btn btn-primary">Update item</button>
                                 </div>
                             </form>
-                            <a href='item/{$item["id"]}/borrar' class="btn btn-primary">Borrar</a>
+                            <a href="delete_item/{$item["id"]}" class="btn btn-primary">Delete item</a>
                         {/if}
-                        -->
                     </div>
                 </div>
             </div> 
