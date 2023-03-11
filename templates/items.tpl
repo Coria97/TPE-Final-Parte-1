@@ -1,5 +1,40 @@
 {include 'header.tpl'}
-
+<form method="GET" action="filter_item">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control" id="min" name="min" placeholder="Price Min">
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control" id="min" name="max" placeholder="Price Max">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <select class="form-control" id="fk_id_category" name="fk_id_category">
+            <option value="0">Select Category</option>
+            {foreach from=$categories item=$c}
+              <option value= "{$c->id}">{$c->name}</option>
+            {/foreach}
+          </select>      
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <button type="submit" class="form-control btn btn-primary" id="search">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 <div class="row row-cols-3 g-6">
   {foreach from=$items item=$i}
     <div class="container my-3">

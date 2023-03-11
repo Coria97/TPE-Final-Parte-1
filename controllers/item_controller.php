@@ -50,6 +50,13 @@
       $item = $this->itemModel->put($id,$_POST);
       $this->itemView->show($item[0]);
     }
+
+    public function filter()
+    {
+      $categories = $this->categoryModel->index();
+      $items = $this->itemModel->filter($_GET);
+      $this->itemView->index($items, $categories);
+    }
   }
 
 ?>

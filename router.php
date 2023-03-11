@@ -34,6 +34,9 @@
         case 'put_item':
             $itemController->put($params[1]);
             break;
+        case 'filter_item':
+            $itemController->filter();
+            break;
         case 'categories':
             $categoryController->index();
             break;
