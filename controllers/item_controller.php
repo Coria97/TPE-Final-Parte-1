@@ -60,7 +60,8 @@
     {
       if ($this->authHelper->isLogged()) 
       {
-        $item = $this->itemModel->put($id,$_POST);
+        if ($this->controllerHelper->validateParams($_POST))
+          $item = $this->itemModel->put($id,$_POST);
         $this->index();
       }
     }
@@ -69,7 +70,7 @@
     {
       $categories = $this->categoryModel->index();
       $items = $this->itemModel->filter($_GET);
-      $this->itemView->index($items, $categories);
+      $this->itemView->index($this->authHelper->getLogged(), $items, $categories);
     }
   }
 

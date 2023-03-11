@@ -52,7 +52,8 @@
     {
       if ($this->authHelper->isLogged()) 
       {
-        $this->categoryModel->put($id,$_POST);
+        if ($this->controllerHelper->validateParams($_POST))
+          $this->categoryModel->put($id,$_POST);
         $this->categoryView->defaultView($this->authHelper->getLogged(), $this->categoryModel->index());
       }
     }
