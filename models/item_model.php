@@ -21,5 +21,11 @@
       $query->execute([$id]);
       return $query->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function create($params)
+    {
+      $query = $this->db->prepare("INSERT INTO item (name, description, price, fk_id_category) VALUES (?,?,?,?)");
+      $query->execute([$params['name'],$params['description'],$params['price'],$params['fk_id_category']]);
+    }
   }
 ?>

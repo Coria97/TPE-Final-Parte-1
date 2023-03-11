@@ -25,6 +25,9 @@
         case 'item':
             $itemController->show($params[1]);
             break;
+        case 'create_item':
+            $itemController->create();
+            break;
         default:  //Caso default de la pagina
           echo('500 internal server error'); 
           break;

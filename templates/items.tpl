@@ -17,16 +17,15 @@
               {if !$logged}
                 <a href="#" class="btn btn-primary">Add to cart</a>
               {else}
-                <form method="POST" action="item/{$i->id}/editar">
+                <form method="POST" action="item/{$i->id}/update">
                   <div class="d-grid gap-2">
-                    <input class="form-control" type="text" id="nombre" name="nombre" placeholder="nombre">
-                    <input class="form-control" type="text" id="tipo" name="tipo" placeholder="tipo">
-                    <input class="form-control" type="text" id="precio" name="precio" placeholder="precio">
-                    <input class="form-control" type="text" id="foto" name="foto" placeholder="foto">
-                    <button type="submit" class="btn btn-primary">Editar</button>
+                    <input class="form-control" type="text" id="name" name="name" placeholder="name">
+                    <input class="form-control" type="text" id="description" name="description" placeholder="description">
+                    <input class="form-control" type="text" id="price" name="price" placeholder="price">
+                    <button type="submit" class="btn btn-primary">Update item</button>
                   </div>
                 </form>
-                <a href="item/{$i->id}/borrar" class="btn btn-primary">Delete item</a>
+                <a href="item/{$i->id}/delete" class="btn btn-primary">Delete item</a>
               {/if}
               -->
             </div>
@@ -35,20 +34,20 @@
       </div>
     </div>  
   {/foreach}
-  
-  <!--
-  {if $logged}
     <div class="container my-3">
       <div class="card text-center" style="width: 18rem;">
         <div class="col-auto">
           <div class="card-body">
-            <form method="POST" action="Item/agregar">
+            <form method="POST" action="create_item">
               <div class="d-grid gap-2">
-                <input class="form-control" type="text" id="nombre" name="nombre" placeholder="nombre">
-                <input class="form-control" type="text" id="tipo" name="tipo" placeholder="tipo">
-                <input class="form-control" type="text" id="precio" name="precio" placeholder="precio">
-                <input class="form-control" type="text" id="foto" name="foto" placeholder="foto">
-                <input class="form-control" type="text" id="nombre_marca" name="nombre_marca" placeholder="nombre marca">
+                <input class="form-control" type="text" id="name" name="name" placeholder="name">
+                <input class="form-control" type="text" id="description" name="description" placeholder="description">
+                <input class="form-control" type="text" id="price" name="price" placeholder="price">
+                <select class="form-control" id="fk_id_category" name="fk_id_category">
+                  {foreach from=$categories item=$c}
+                    <option value= "{$c->id}">{$c->name}</option>
+                  {/foreach}
+                </select>
                 <button type="submit" class="btn btn-primary">Add item</button>
               </div>
             </form>
@@ -56,8 +55,6 @@
         </div>
       </div>
     </div>
-  {/if}
-  -->
 </div>
 
 {include 'footer.tpl'}
