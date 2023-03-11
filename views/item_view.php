@@ -18,16 +18,13 @@
       $this->smarty->display('./templates/items.tpl'); 
     }
 
-    public function show($logged = false, $item = null)
+    public function show($logged = false, $item = null,  $categories = null)
     {
       $this->smarty->assign('logged', $logged);
+      $this->smarty->assign('categories', $categories);
       $this->smarty->assign('item', $item);
       $this->smarty->display('./templates/item.tpl');
     }
-    
-    public function defaultView()
-    {
-      header("Location: " . BASE_URL. "items");
-    }
   }
+
 ?>

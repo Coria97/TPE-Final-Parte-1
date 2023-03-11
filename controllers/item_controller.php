@@ -33,7 +33,8 @@
     public function show($id)
     {
       $item = $this->itemModel->show($id);
-      $this->itemView->show($this->authHelper->getLogged(), $item[0]);
+      $categories = $this->categoryModel->index();
+      $this->itemView->show($this->authHelper->getLogged(), $item[0], $categories);
     }
 
     public function create()
@@ -42,7 +43,7 @@
       {
         if ($this->controllerHelper->validateParams($_POST))
           $this->itemModel->create($_POST);
-        $this->itemView->defaultView();
+        $this->index();
       }
     }
 
@@ -51,7 +52,7 @@
       if ($this->authHelper->isLogged()) 
       {
         $this->itemModel->delete($id);
-        $this->itemView->defaultView();
+        $this->index();
       }
     }
 
@@ -60,7 +61,7 @@
       if ($this->authHelper->isLogged()) 
       {
         $item = $this->itemModel->put($id,$_POST);
-        $this->itemView->show($item[0]);
+        $this->index();
       }
     }
     
