@@ -27,5 +27,11 @@
       $query = $this->db->prepare("INSERT INTO item (name, description, price, fk_id_category) VALUES (?,?,?,?)");
       $query->execute([$params['name'],$params['description'],$params['price'],$params['fk_id_category']]);
     }
+
+    public function delete($id)
+    {
+      $query = $this->db->prepare("DELETE FROM item WHERE id = ?");
+      $query->execute([$id]);   
+    }
   }
 ?>

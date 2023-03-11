@@ -33,7 +33,13 @@
     public function create()
     {
       $this->itemModel->create($_POST);
-      $this->itemView->create();
+      $this->itemView->default_view();
+    }
+
+    public function delete($id)
+    {
+      $this->itemModel->delete($id);
+      $this->itemView->default_view();
     }
   }
 
