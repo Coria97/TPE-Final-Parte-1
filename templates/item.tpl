@@ -7,6 +7,7 @@
                 <img src="./images/wip.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{$item["name"]}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{$item["category_name"]}</h6>
                     <h6 class="card-subtitle mb-2 text-muted">{$item["description"]}</h6>
                     <p class="card-text">{$item["price"]}</p>
                     <div class="d-grid gap-2">

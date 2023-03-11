@@ -31,6 +31,9 @@
         case 'delete_item':
             $itemController->delete($params[1]);
             break;
+        case 'put_item':
+            $itemController->put($params[1]);
+            break;
         default:  //Caso default de la pagina
           echo('500 internal server error'); 
           break;

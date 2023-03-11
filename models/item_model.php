@@ -33,5 +33,26 @@
       $query = $this->db->prepare("DELETE FROM item WHERE id = ?");
       $query->execute([$id]);   
     }
+
+    public function put($id, $params)
+    {
+      $this->db->exec($this->buildQuery($id, $params));
+      return $this->show($id);
+    }
+
+    private function buildQuery($id, $params)
+    {
+      $build_query = "UPDATE item SET ";
+      $keys = array_keys($params);
+      $columns_to_update = array();
+      foreach ($keys as $key) {
+        if (!empty($params[$key])) {
+          $columns_to_update[] = $key . "='" . $params[$key] . "'";
+        }
+      }      
+      $build_query .= implode(',', $columns_to_update);
+      $build_query .= " WHERE id='".$id."'";
+      return $build_query;
+    }
   }
 ?>
