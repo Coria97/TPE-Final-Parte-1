@@ -19,14 +19,14 @@
     public function index()
     {
       $categories = $this->categoryModel->index();
-      $this->categoryView->index($categories);
+      $this->categoryView->index($this->authHelper->getLogged(), $categories);
     }
 
     public function showItems($id)
     {
       $categories = $this->categoryModel->index();
       $items = $this->categoryModel->showItems($id);
-      $this->categoryView->showItems($items, $categories);
+      $this->categoryView->showItems($this->authHelper->getLogged(), $items, $categories);
     }
 
     public function delete($id)
@@ -34,7 +34,7 @@
       if ($this->authHelper->isLogged()) 
       {
         $this->categoryModel->delete($id);
-        $this->categoryView->defaultView();
+        $this->categoryView->defaultView($this->authHelper->getLogged(), $this->categoryModel->index());
       }
     }
 
@@ -44,7 +44,7 @@
       {
         if ($this->controllerHelper->validateParams($_POST))
           $this->categoryModel->create($_POST);
-        $this->categoryView->defaultView();
+        $this->categoryView->defaultView($this->authHelper->getLogged(), $this->categoryModel->index());
       }
     }
     
@@ -53,7 +53,7 @@
       if ($this->authHelper->isLogged()) 
       {
         $this->categoryModel->put($id,$_POST);
-        $this->categoryView->defaultView();
+        $this->categoryView->defaultView($this->authHelper->getLogged(), $this->categoryModel->index());
       }
     }
   }
