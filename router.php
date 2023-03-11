@@ -1,7 +1,7 @@
 <?php
-    include_once './controllers/item_controller.php';
-    include_once './controllers/category_controller.php';
-    include_once './controllers/user_controller.php';
+    include_once './app/controllers/item_controller.php';
+    include_once './app/controllers/category_controller.php';
+    include_once './app/controllers/user_controller.php';
 
     //Definicion de la constante que tiene la URL BASE
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');

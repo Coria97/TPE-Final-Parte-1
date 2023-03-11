@@ -1,7 +1,7 @@
 <?php
-require_once './views/user_view.php';
-require_once './models/user_model.php';
-require_once './helpers/auth_helper.php';
+require_once './app/views/user_view.php';
+require_once './app/models/user_model.php';
+require_once './app/helpers/auth_helper.php';
 
 class UserController 
 {

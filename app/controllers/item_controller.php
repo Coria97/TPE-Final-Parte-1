@@ -1,10 +1,10 @@
 <?php
   
-  require_once './models/category_model.php';
-  require_once './models/item_model.php';
-  require_once './views/item_view.php';
-  require_once './helpers/controller_helper.php';
-  require_once './helpers/auth_helper.php';
+  require_once './app/models/category_model.php';
+  require_once './app/models/item_model.php';
+  require_once './app/views/item_view.php';
+  require_once './app/helpers/controller_helper.php';
+  require_once './app/helpers/auth_helper.php';
 
   class ItemController 
   {

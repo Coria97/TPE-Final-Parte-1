@@ -1,6 +1,6 @@
 <?php
 
-  require_once './helpers/model_helper.php';
+  require_once './app/helpers/model_helper.php';
   class ItemModel
   { 
     private $db;
