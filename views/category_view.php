@@ -16,14 +16,14 @@
       $this->smarty->display('./templates/categories.tpl'); 
     }
 
-    public function showitems($items = null, $categories = null)
+    public function showItems($items = null, $categories = null)
     { 
       $this->smarty->assign('categories', $categories);
       $this->smarty->assign('items', $items);
       $this->smarty->display('./templates/items.tpl'); 
     }
 
-    public function default_view()
+    public function defaultView()
     {
       header("Location: " . BASE_URL. "categories");
     }

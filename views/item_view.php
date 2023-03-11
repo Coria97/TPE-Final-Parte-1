@@ -10,19 +10,22 @@
       $this->smarty = new Smarty();
     }
 
-    public function index($items = null, $categories = null)
+    public function index($logged = false, $items = null, $categories = null)
     { 
+      $this->smarty->assign('logged', $logged);
       $this->smarty->assign('categories', $categories);
       $this->smarty->assign('items', $items);
       $this->smarty->display('./templates/items.tpl'); 
     }
 
-    public function show($item = null){
+    public function show($logged = false, $item = null)
+    {
+      $this->smarty->assign('logged', $logged);
       $this->smarty->assign('item', $item);
       $this->smarty->display('./templates/item.tpl');
     }
     
-    public function default_view()
+    public function defaultView()
     {
       header("Location: " . BASE_URL. "items");
     }

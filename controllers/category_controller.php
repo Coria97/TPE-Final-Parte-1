@@ -2,7 +2,7 @@
   require_once './models/category_model.php';
   require_once './views/category_view.php';
   require_once './helpers/controller_helper.php';
-
+  require_once './helpers/auth_helper.php';
   class CategoryController
   {
     private $categoryModel;
@@ -13,6 +13,7 @@
       $this->categoryModel = new CategoryModel();
       $this->categoryView = new CategoryView();
       $this->controllerHelper = new ControllerHelper();
+      $this->authHelper = new authHelper();
     }
 
     public function index()
@@ -30,21 +31,31 @@
 
     public function delete($id)
     {
-      $this->categoryModel->delete($id);
-      $this->categoryView->default_view();
+      if ($this->authHelper->isLogged()) 
+      {
+        $this->categoryModel->delete($id);
+        $this->categoryView->defaultView();
+      }
     }
 
     public function create()
     {
-      if ($this->controllerHelper->validateParams($_POST))
-        $this->categoryModel->create($_POST);
-      $this->categoryView->default_view();
+      if ($this->authHelper->isLogged()) 
+      {
+        if ($this->controllerHelper->validateParams($_POST))
+          $this->categoryModel->create($_POST);
+        $this->categoryView->defaultView();
+      }
     }
-
+    
     public function put($id)
     {
-      $this->categoryModel->put($id,$_POST);
-      $this->categoryView->default_view();
+      if ($this->authHelper->isLogged()) 
+      {
+        $this->categoryModel->put($id,$_POST);
+        $this->categoryView->defaultView();
+      }
     }
   }
+
 ?>
