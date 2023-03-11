@@ -1,8 +1,6 @@
 <?php
     include_once './controllers/item_controller.php';
 
-    include_once './controllers/item_controller.php';
-
     //Definicion de la constante que tiene la URL BASE
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -14,8 +12,6 @@
 
     // parsea la accion    
     $params = explode('/', $action);
-
-    $itemController = new ItemController();
 
     $itemController = new ItemController();
 
