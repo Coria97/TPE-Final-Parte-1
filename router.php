@@ -46,6 +46,9 @@
         case 'delete_category':
             $categoryController->delete($params[1]);
             break;
+        case 'put_category':
+            $categoryController->put($params[1]);
+            break;
         default:  //Caso default de la pagina
           echo('500 internal server error'); 
           break;

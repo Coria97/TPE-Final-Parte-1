@@ -1,12 +1,15 @@
 <?php
 
+  require_once './helpers/model_helper.php';
   class CategoryModel
   { 
     private $db;
+    private $modelHelper;
 
     public function __construct()
     {
       $this->db = new PDO('mysql:host=localhost;port=3307;'.'dbname=db_ecommerce;charset=utf8','root','');
+      $this->modelHelper = new ModelHelper();
     }
     
     public function index()
@@ -33,6 +36,12 @@
     {
       $query = $this->db->prepare("INSERT INTO Category (name, description) VALUES (?,?)");
       $query->execute([$params['name'],$params['description']]);
+    }
+
+    public function put($id, $params)
+    {
+      $this->db->exec($this->modelHelper->buildQuery($id, 'Category', $params));
+      return $this->index();
     }
   }
 ?>
