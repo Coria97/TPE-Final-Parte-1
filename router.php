@@ -63,6 +63,48 @@
         case 'logout':
             $userController->logout();
             break;
+        case 'items':
+            $itemController->index();
+            break;
+        case 'item':
+            $itemController->show($params[1]);
+            break;
+        case 'create_item':
+            $itemController->create();
+            break;
+        case 'delete_item':
+            $itemController->delete($params[1]);
+            break;
+        case 'put_item':
+            $itemController->put($params[1]);
+            break;
+        case 'filter_item':
+            $itemController->filter();
+            break;
+        case 'categories':
+            $categoryController->index();
+            break;
+        case 'items_x_categories':
+            $categoryController->showItems($params[1]);
+            break;
+        case 'create_category':
+            $categoryController->create();
+            break;
+        case 'delete_category':
+            $categoryController->delete($params[1]);
+            break;
+        case 'put_category':
+            $categoryController->put($params[1]);
+            break;
+        case 'login':
+            $userController->login();
+            break;
+        case 'validate_user':
+            $userController->validateUser();
+            break;
+        case 'logout':
+            $userController->logout();
+            break;
         default:  //Caso default de la pagina
           echo('500 internal server error'); 
           break;
