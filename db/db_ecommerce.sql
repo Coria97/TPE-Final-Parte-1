@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: Mar 15, 2023 at 02:02 PM
+-- Generation Time: Mar 15, 2023 at 03:35 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -52,7 +52,7 @@ CREATE TABLE `item` (
   `name` varchar(50) NOT NULL,
   `description` varchar(255) NOT NULL,
   `price` double NOT NULL,
-  `image` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `fk_id_category` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -61,32 +61,9 @@ CREATE TABLE `item` (
 --
 
 INSERT INTO `item` (`id`, `name`, `description`, `price`, `image`, `fk_id_category`) VALUES
-(16, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(18, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(20, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(21, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(22, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(23, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(24, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(25, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(26, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(27, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(28, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(29, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(30, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(31, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(32, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(33, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(34, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(35, 'ojotaa', '4 gb de ram', 9999999, '', 10),
-(36, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(37, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(38, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(39, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(41, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(42, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(43, 'ojotaa', 'ojota que uso messi', 9999999, '', 10),
-(44, 'ojota del 10', 'ojota que uso messi', 9999999, '', 10);
+(45, 'Xiaomi', '8 gb de ram', 59496, './images_upload/6411d4c9be8d57.49701701.jpg', 10),
+(46, 'Xiaomi', '8 gb de ram', 59496, './images_upload/6411d4bb5a2499.24679105.jpg', 2),
+(47, 'Xiaomi', '5 gb de ram', 59496, './images_upload/6411d4c2051840.60711839.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -147,7 +124,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `user`
