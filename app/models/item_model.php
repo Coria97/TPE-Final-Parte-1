@@ -27,8 +27,10 @@
 
     public function create($params)
     {
-      $query = $this->db->prepare("INSERT INTO Item (name, description, price, fk_id_category) VALUES (?,?,?,?)");
-      $query->execute([$params['name'],$params['description'],$params['price'],$params['fk_id_category']]);
+      if(isset($_FILES['image']['type']))
+        $params['image'] = $this->modelHelper->saveImage();
+      $query = $this->db->prepare("INSERT INTO Item (name, description, price, image, fk_id_category) VALUES (?,?,?,?,?)");
+      $query->execute([$params['name'],$params['description'],$params['price'],$params['image'], $params['fk_id_category']]);
     }
 
     public function delete($id)
@@ -38,9 +40,10 @@
     }
 
     public function put($id, $params)
-    {
+    { 
+      if(isset($_FILES['image']['type']))
+        $params['image'] = $this->modelHelper->saveImage();
       $this->db->exec($this->modelHelper->buildQuery($id, 'Item', $params));
-      return $this->show($id);
     }
 
     public function filter($params)
@@ -90,7 +93,6 @@
        else 
         return "price >= " . $min . " AND price < " . $max;
     } 
-    
 
     private function filterCategory($category)
     {
@@ -98,5 +100,7 @@
         return "fk_id_category= ". $category;
       else return null;
     }
+
   }
+  
 ?>

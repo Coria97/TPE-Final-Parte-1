@@ -15,5 +15,15 @@
       $query .= " WHERE id='".$id."'";
       return $query;
     }
+
+    public function saveImage()
+    {
+      $fileTemp = $_FILES["image"]["tmp_name"];
+      $filePath = "./images_upload/" . uniqid("", true) . "." . strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
+      move_uploaded_file($fileTemp, $filePath);
+      return $filePath;
+    }
+
   }
+  
 ?>
