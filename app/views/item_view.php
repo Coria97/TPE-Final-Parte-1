@@ -25,6 +25,7 @@
       $this->smarty->assign('item', $item);
       $this->smarty->display('./templates/item.tpl');
     }
+    
   }
 
 ?>

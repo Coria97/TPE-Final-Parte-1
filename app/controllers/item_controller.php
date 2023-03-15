@@ -41,7 +41,7 @@
     {
       if ($this->authHelper->isLogged()) 
       {
-        if ($this->controllerHelper->validateParams($_POST))
+        if ($this->controllerHelper->validateParams($_POST) && (isset($_FILES['image']['type']) && $this->controllerHelper->validateFile($_FILES['image']['type'])))
           $this->itemModel->create($_POST);
         $this->index();
       }
@@ -58,10 +58,11 @@
 
     public function put($id)
     {
+      xdebug_break();
       if ($this->authHelper->isLogged()) 
       {
-        if ($this->controllerHelper->validateParams($_POST))
-          $item = $this->itemModel->put($id,$_POST);
+        if ($this->controllerHelper->validateUploadParams($_POST) || (isset($_FILES['image']['type']) && $this->controllerHelper->validateFile($_FILES['image']['type'])))
+           $this->itemModel->put($id, $_POST);
         $this->index();
       }
     }
@@ -72,6 +73,7 @@
       $items = $this->itemModel->filter($_GET);
       $this->itemView->index($this->authHelper->getLogged(), $items, $categories);
     }
+    
   }
 
 ?>
