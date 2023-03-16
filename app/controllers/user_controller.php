@@ -17,14 +17,12 @@ class UserController
 
   public function login() 
   {   
-    $this->userView->login(isset($_SESSION['IS_LOGGED']));
+    $this->userView->login($this->authHelper->getLogged());
   }
 
   public function validateUser() 
   {
-    var_dump($_POST);
     $user = $this->userModel->getUserByEmail($_POST['email']);
-    echo "password_verify: " . password_verify($_POST['password'], $user->password);
     if ($user && password_verify($_POST['password'], $user->password)) 
     {
       session_start();

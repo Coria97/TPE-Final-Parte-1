@@ -53,7 +53,7 @@
     {
       if ($this->authHelper->isLogged()) 
       {
-        if ($this->controllerHelper->validateParams($_POST))
+        if ($this->controllerHelper->validateUploadParams($_POST))
           $this->categoryModel->put($id,$_POST);
         $this->categoryView->defaultView($this->authHelper->getLogged(), $this->categoryModel->index());
       }
