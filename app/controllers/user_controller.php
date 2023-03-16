@@ -22,9 +22,7 @@ class UserController
 
   public function validateUser() 
   {
-    var_dump($_POST);
     $user = $this->userModel->getUserByEmail($_POST['email']);
-    echo "password_verify: " . password_verify($_POST['password'], $user->password);
     if ($user && password_verify($_POST['password'], $user->password)) 
     {
       session_start();
